@@ -5,6 +5,15 @@
  */
 package org.me.mybackgroundapp;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author HIOP
@@ -69,20 +78,23 @@ public class ImageDisplay extends javax.swing.JFrame {
         Profit = new javax.swing.JTextField();
         Calcular_Balance = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        Dprofit = new javax.swing.JTextField();
         Salvar = new javax.swing.JButton();
+        ptx = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        arquivo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
-        setMaximumSize(new java.awt.Dimension(800, 415));
-        setPreferredSize(new java.awt.Dimension(800, 415));
+        setBackground(new java.awt.Color(0, 0, 0));
+        setMaximumSize(null);
+        setMinimumSize(null);
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setMaximumSize(null);
-        jPanel1.setMinimumSize(null);
         jPanel1.setOpaque(false);
 
         jLabel3.setFont(new java.awt.Font("Wide Latin", 2, 15)); // NOI18N
@@ -153,16 +165,34 @@ public class ImageDisplay extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Total");
 
+        total_supply_ED.setEditable(false);
         total_supply_ED.setBackground(new java.awt.Color(255, 255, 204));
+        total_supply_ED.setText("0");
+        total_supply_ED.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                total_supply_EDActionPerformed(evt);
+            }
+        });
 
+        total_supply_MS.setEditable(false);
         total_supply_MS.setBackground(new java.awt.Color(255, 255, 204));
+        total_supply_MS.setText("0");
 
+        total_supply_RP.setEditable(false);
         total_supply_RP.setBackground(new java.awt.Color(255, 255, 204));
+        total_supply_RP.setText("0");
 
+        total_supply_Quinto.setEditable(false);
         total_supply_Quinto.setBackground(new java.awt.Color(255, 255, 204));
+        total_supply_Quinto.setText("0");
 
         Calcular_ED.setBackground(new java.awt.Color(0, 204, 204));
         Calcular_ED.setText("Calcular");
+        Calcular_ED.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Calcular_EDActionPerformed(evt);
+            }
+        });
 
         Calcular_MS.setBackground(new java.awt.Color(0, 204, 204));
         Calcular_MS.setText("Calcular");
@@ -174,15 +204,26 @@ public class ImageDisplay extends javax.swing.JFrame {
 
         Calcular_RP.setBackground(new java.awt.Color(0, 204, 204));
         Calcular_RP.setText("Calcular");
+        Calcular_RP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Calcular_RPActionPerformed(evt);
+            }
+        });
 
         Calcular_Quinto.setBackground(new java.awt.Color(0, 204, 204));
         Calcular_Quinto.setText("Calcular");
+        Calcular_Quinto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Calcular_QuintoActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Prey e TC"));
         jPanel2.setName(""); // NOI18N
 
         Valor_Prey.setBackground(new java.awt.Color(255, 255, 204));
+        Valor_Prey.setText("0");
 
         jLabel11.setFont(new java.awt.Font("Wide Latin", 2, 15)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 102));
@@ -193,10 +234,18 @@ public class ImageDisplay extends javax.swing.JFrame {
         jLabel12.setText("Tibia Coins:");
 
         Valor_TC.setBackground(new java.awt.Color(255, 255, 204));
+        Valor_TC.setText("0");
 
         Calcular_PreyTC.setText("Calcular");
+        Calcular_PreyTC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Calcular_PreyTCActionPerformed(evt);
+            }
+        });
 
+        PreyTC.setEditable(false);
         PreyTC.setBackground(new java.awt.Color(255, 255, 204));
+        PreyTC.setText("0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -237,24 +286,52 @@ public class ImageDisplay extends javax.swing.JFrame {
         jLabel13.setText("Balance:");
 
         Balance.setBackground(new java.awt.Color(255, 255, 204));
+        Balance.setText("0");
 
+        Profit.setEditable(false);
         Profit.setBackground(new java.awt.Color(255, 255, 204));
+        Profit.setText("0");
 
         Calcular_Balance.setBackground(new java.awt.Color(0, 204, 204));
         Calcular_Balance.setText("Calcular");
+        Calcular_Balance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Calcular_BalanceActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Wide Latin", 2, 15)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Profit");
 
-        jLabel15.setFont(new java.awt.Font("Wide Latin", 2, 15)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("D/Profit");
-
-        Dprofit.setBackground(new java.awt.Color(255, 255, 204));
-
         Salvar.setBackground(new java.awt.Color(0, 204, 204));
         Salvar.setText("SALVAR");
+        Salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalvarActionPerformed(evt);
+            }
+        });
+
+        ptx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PT x:", "2", "3", "4", "5" }));
+
+        jButton1.setBackground(new java.awt.Color(0, 204, 204));
+        jButton1.setText("Limpar Tela");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Wide Latin", 2, 10)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Nome Arquvo:");
+
+        arquivo.setBackground(new java.awt.Color(255, 255, 204));
+        arquivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                arquivoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -295,21 +372,24 @@ public class ImageDisplay extends javax.swing.JFrame {
                                         .addComponent(Profit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(64, 64, 64)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Calcular_ED)
-                                    .addComponent(Calcular_MS))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Calcular_ED, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Calcular_MS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ptx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(35, 35, 35)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(total_supply_MS, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(total_supply_ED, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(65, 65, 65)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Salvar, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel15)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Dprofit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(arquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -347,7 +427,7 @@ public class ImageDisplay extends javax.swing.JFrame {
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(687, 687, 687))
         );
@@ -359,7 +439,8 @@ public class ImageDisplay extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel10)
+                    .addComponent(ptx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -402,13 +483,15 @@ public class ImageDisplay extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(Dprofit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(arquivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -417,8 +500,10 @@ public class ImageDisplay extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         getContentPane().add(jPanel1, gridBagConstraints);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/me/mybackgroundapp/newpackage/plano de fundo.jpg"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(807, 375));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/me/mybackgroundapp/newpackage/novo.jpg"))); // NOI18N
+        jLabel1.setMaximumSize(null);
+        jLabel1.setMinimumSize(null);
+        jLabel1.setPreferredSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -429,8 +514,146 @@ public class ImageDisplay extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Calcular_MSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Calcular_MSActionPerformed
-        // TODO add your handling code here:
+        int supply1 = Integer.parseInt(MS_supply1.getText());
+        int supply2 = Integer.parseInt(MS_supply2.getText());
+        int supply3 = Integer.parseInt(MS_supply3.getText());
+        double calculo = supply1 + supply2 + supply3;
+        total_supply_MS.setText("" + calculo);
     }//GEN-LAST:event_Calcular_MSActionPerformed
+
+    private void Calcular_EDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Calcular_EDActionPerformed
+        int supply1 = Integer.parseInt(ED_supply1.getText());
+        int supply2 = Integer.parseInt(ED_supply2.getText());
+        int supply3 = Integer.parseInt(ED_supply3.getText());
+        double calculo = supply1 + supply2 + supply3;
+        total_supply_ED.setText("" + calculo);
+    }//GEN-LAST:event_Calcular_EDActionPerformed
+
+    private void Calcular_RPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Calcular_RPActionPerformed
+        int supply1 = Integer.parseInt(RP_supply1.getText());
+        int supply2 = Integer.parseInt(RP_supply2.getText());
+        int supply3 = Integer.parseInt(RP_supply3.getText());
+        double calculo = supply1 + supply2 + supply3;
+        total_supply_RP.setText("" + calculo);
+    }//GEN-LAST:event_Calcular_RPActionPerformed
+
+    private void Calcular_QuintoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Calcular_QuintoActionPerformed
+        int supply1 = Integer.parseInt(Quinto_supply1.getText());
+        int supply2 = Integer.parseInt(Quinto_supply2.getText());
+        int supply3 = Integer.parseInt(Quinto_supply3.getText());
+        double calculo = supply1 + supply2 + supply3;
+        total_supply_Quinto.setText("" + calculo);
+    }//GEN-LAST:event_Calcular_QuintoActionPerformed
+
+    private void total_supply_EDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_supply_EDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_total_supply_EDActionPerformed
+
+    private void Calcular_BalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Calcular_BalanceActionPerformed
+        double supplyED = Double.parseDouble(total_supply_ED.getText());
+        double supplyMS = Double.parseDouble(total_supply_MS.getText());
+        double supplyRP = Double.parseDouble(total_supply_RP.getText());
+        double supplyQuinto = Double.parseDouble(total_supply_Quinto.getText());
+        double balance = Double.parseDouble(Balance.getText());
+        double calculo = supplyED + supplyMS + supplyRP + supplyQuinto;
+
+        if (ptx.getSelectedIndex() == 1) {
+            double divisao = (balance - calculo) / 2;
+            Profit.setText("" + divisao);
+        }
+        if (ptx.getSelectedIndex() == 2) {
+            double divisao = (balance - calculo) / 3;
+            Profit.setText("" + divisao);
+        }
+        if (ptx.getSelectedIndex() == 3) {
+            double divisao = (balance - calculo) / 4;
+            Profit.setText("" + divisao);
+
+        }
+        if (ptx.getSelectedIndex() == 4) {
+            double divisao = (balance - calculo) / 5;
+            System.out.println(balance);
+            System.out.println(calculo);
+            Profit.setText("" + divisao);
+        }
+    }//GEN-LAST:event_Calcular_BalanceActionPerformed
+
+    private void Calcular_PreyTCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Calcular_PreyTCActionPerformed
+        int prey = Integer.parseInt(Valor_Prey.getText());
+        double tc = Double.parseDouble(Valor_TC.getText());
+        double calculo = (prey * 10) * tc;
+        PreyTC.setText(calculo + "");
+        double balance = Integer.parseInt(Balance.getText());
+        double desconto = balance - calculo;
+        Balance.setText(desconto + "");
+        Calcular_BalanceActionPerformed(evt);
+    }//GEN-LAST:event_Calcular_PreyTCActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ED_supply1.setText("0");
+        ED_supply2.setText("0");
+        ED_supply3.setText("0");
+        total_supply_ED.setText("0");
+        MS_supply1.setText("0");
+        MS_supply1.setText("0");
+        MS_supply1.setText("0");
+        total_supply_MS.setText("0");
+        RP_supply1.setText("0");
+        RP_supply1.setText("0");
+        RP_supply1.setText("0");
+        total_supply_RP.setText("0");
+        Quinto_supply1.setText("0");
+        Quinto_supply1.setText("0");
+        Quinto_supply1.setText("0");
+        total_supply_Quinto.setText("0");
+        Balance.setText("0");
+        Valor_Prey.setText("0");
+        Valor_TC.setText("0");
+        Profit.setText("0");
+        ptx.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
+        try {
+            Date hoje = new Date();
+            SimpleDateFormat df;
+            double supplyED = Double.parseDouble(total_supply_ED.getText());
+            double supplyMS = Double.parseDouble(total_supply_MS.getText());
+            double supplyRP = Double.parseDouble(total_supply_RP.getText());
+            double supplyQuinto = Double.parseDouble(total_supply_Quinto.getText());
+            df = new SimpleDateFormat("dd_MM_yyyy HH.mm.ss");
+                FileWriter arq = new FileWriter("C:\\home\\" + arquivo.getText() + " " + df.format(hoje) + ".txt");
+                PrintWriter gravarArq = new PrintWriter(arq);
+
+                gravarArq.printf("******WASTES******\r\n");
+                gravarArq.printf("Waste ED: " + supplyED+"\r\n");
+                gravarArq.printf("Waste MS: " + supplyMS+"\r\n");
+                gravarArq.printf("Waste RP: " + supplyRP+"\r\n");
+                gravarArq.printf("Waste 5º: " + supplyQuinto+"\r\n");
+                gravarArq.printf("******PROFITS******\r\n");
+                gravarArq.printf("Balance: " + Balance.getText()+"\r\n");
+                gravarArq.printf("Gastos em Prey: " + PreyTC.getText()+"\r\n");
+                gravarArq.printf("Profit: " + Profit.getText()+"\r\n");
+                gravarArq.printf("******TOTAL A PAGAR******\r\n");
+                double profit = Double.parseDouble(Profit.getText()+"\r\n");
+
+                double contaED = supplyED + profit;
+                double contaMS = supplyMS + profit;
+                double contaRP = supplyRP + profit;
+                double contaQuinto = supplyQuinto + profit;
+                gravarArq.printf("ED: " + contaED+"\r\n");
+                gravarArq.printf("MS: " + contaMS+"\r\n");
+                gravarArq.printf("RP: " + contaRP+"\r\n");
+                gravarArq.printf("5º: " + contaQuinto+"\r\n");
+                arq.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ImageDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_SalvarActionPerformed
+
+    private void arquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arquivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_arquivoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -475,7 +698,6 @@ public class ImageDisplay extends javax.swing.JFrame {
     private javax.swing.JButton Calcular_PreyTC;
     private javax.swing.JButton Calcular_Quinto;
     private javax.swing.JButton Calcular_RP;
-    private javax.swing.JTextField Dprofit;
     private javax.swing.JTextField ED_supply1;
     private javax.swing.JTextField ED_supply2;
     private javax.swing.JTextField ED_supply3;
@@ -493,6 +715,8 @@ public class ImageDisplay extends javax.swing.JFrame {
     private javax.swing.JButton Salvar;
     private javax.swing.JTextField Valor_Prey;
     private javax.swing.JTextField Valor_TC;
+    private javax.swing.JTextField arquivo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -509,6 +733,7 @@ public class ImageDisplay extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> ptx;
     private javax.swing.JTextField total_supply_ED;
     private javax.swing.JTextField total_supply_MS;
     private javax.swing.JTextField total_supply_Quinto;
