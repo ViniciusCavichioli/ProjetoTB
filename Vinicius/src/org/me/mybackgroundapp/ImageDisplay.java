@@ -6,6 +6,7 @@
 package org.me.mybackgroundapp;
 
 import java.awt.Color;
+import java.awt.event.FocusEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class ImageDisplay extends javax.swing.JFrame {
      */
     public ImageDisplay() {
         initComponents();
+        porfoco();
     }
 
     /**
@@ -37,7 +39,6 @@ public class ImageDisplay extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -74,7 +75,6 @@ public class ImageDisplay extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         Balance = new javax.swing.JTextField();
         Profit = new javax.swing.JTextField();
-        Calcular_Balance = new javax.swing.JButton();
         lb_profit = new javax.swing.JLabel();
         Salvar = new javax.swing.JButton();
         ptx = new javax.swing.JComboBox<>();
@@ -86,19 +86,25 @@ public class ImageDisplay extends javax.swing.JFrame {
         nomeRP = new javax.swing.JTextField();
         nomeQuinto = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        texto = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setTitle("Calculdora Loot v1.0");
         setBackground(new java.awt.Color(0, 0, 0));
-        setMaximumSize(null);
-        setPreferredSize(new java.awt.Dimension(1024, 500));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setMaximizedBounds(new java.awt.Rectangle(1024, 450, 450, 450));
+        setMaximumSize(new java.awt.Dimension(999, 579));
+        setMinimumSize(new java.awt.Dimension(999, 579));
+        setPreferredSize(new java.awt.Dimension(999, 579));
         setResizable(false);
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setMaximumSize(null);
+        jPanel1.setMaximumSize(new java.awt.Dimension(1024, 768));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1024, 768));
         jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jLabel3.setFont(new java.awt.Font("Wide Latin", 2, 15)); // NOI18N
         jLabel3.setText("ED:");
@@ -113,8 +119,15 @@ public class ImageDisplay extends javax.swing.JFrame {
         jLabel6.setText("5º:");
 
         ED_supply1.setBackground(new java.awt.Color(255, 255, 204));
-        ED_supply1.setText("0");
         ED_supply1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ED_supply1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ED_supply1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ED_supply1FocusLost(evt);
+            }
+        });
         ED_supply1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ED_supply1KeyReleased(evt);
@@ -122,7 +135,14 @@ public class ImageDisplay extends javax.swing.JFrame {
         });
 
         MS_supply1.setBackground(new java.awt.Color(255, 255, 204));
-        MS_supply1.setText("0");
+        MS_supply1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                MS_supply1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MS_supply1FocusLost(evt);
+            }
+        });
         MS_supply1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 MS_supply1KeyReleased(evt);
@@ -130,10 +150,34 @@ public class ImageDisplay extends javax.swing.JFrame {
         });
 
         RP_supply1.setBackground(new java.awt.Color(255, 255, 204));
-        RP_supply1.setText("0");
+        RP_supply1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                RP_supply1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                RP_supply1FocusLost(evt);
+            }
+        });
+        RP_supply1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                RP_supply1KeyReleased(evt);
+            }
+        });
 
         Quinto_supply1.setBackground(new java.awt.Color(255, 255, 204));
-        Quinto_supply1.setText("0");
+        Quinto_supply1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                Quinto_supply1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                Quinto_supply1FocusLost(evt);
+            }
+        });
+        Quinto_supply1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Quinto_supply1KeyReleased(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Wide Latin", 2, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,7 +188,14 @@ public class ImageDisplay extends javax.swing.JFrame {
         jLabel8.setText("Supply");
 
         ED_supply2.setBackground(new java.awt.Color(255, 255, 204));
-        ED_supply2.setText("0");
+        ED_supply2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ED_supply2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ED_supply2FocusLost(evt);
+            }
+        });
         ED_supply2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ED_supply2ActionPerformed(evt);
@@ -157,20 +208,63 @@ public class ImageDisplay extends javax.swing.JFrame {
         });
 
         MS_supply2.setBackground(new java.awt.Color(255, 255, 204));
-        MS_supply2.setText("0");
+        MS_supply2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                MS_supply2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MS_supply2FocusLost(evt);
+            }
+        });
+        MS_supply2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                MS_supply2KeyReleased(evt);
+            }
+        });
 
         RP_supply2.setBackground(new java.awt.Color(255, 255, 204));
-        RP_supply2.setText("0");
+        RP_supply2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                RP_supply2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                RP_supply2FocusLost(evt);
+            }
+        });
+        RP_supply2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                RP_supply2KeyReleased(evt);
+            }
+        });
 
         Quinto_supply2.setBackground(new java.awt.Color(255, 255, 204));
-        Quinto_supply2.setText("0");
+        Quinto_supply2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                Quinto_supply2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                Quinto_supply2FocusLost(evt);
+            }
+        });
+        Quinto_supply2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Quinto_supply2KeyReleased(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Wide Latin", 2, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Supply");
 
         ED_supply3.setBackground(new java.awt.Color(255, 255, 204));
-        ED_supply3.setText("0");
+        ED_supply3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ED_supply3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ED_supply3FocusLost(evt);
+            }
+        });
         ED_supply3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ED_supply3ActionPerformed(evt);
@@ -183,13 +277,49 @@ public class ImageDisplay extends javax.swing.JFrame {
         });
 
         MS_supply3.setBackground(new java.awt.Color(255, 255, 204));
-        MS_supply3.setText("0");
+        MS_supply3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                MS_supply3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MS_supply3FocusLost(evt);
+            }
+        });
+        MS_supply3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                MS_supply3KeyReleased(evt);
+            }
+        });
 
         RP_supply3.setBackground(new java.awt.Color(255, 255, 204));
-        RP_supply3.setText("0");
+        RP_supply3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                RP_supply3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                RP_supply3FocusLost(evt);
+            }
+        });
+        RP_supply3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                RP_supply3KeyReleased(evt);
+            }
+        });
 
         Quinto_supply3.setBackground(new java.awt.Color(255, 255, 204));
-        Quinto_supply3.setText("0");
+        Quinto_supply3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                Quinto_supply3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                Quinto_supply3FocusLost(evt);
+            }
+        });
+        Quinto_supply3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Quinto_supply3KeyReleased(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Wide Latin", 2, 15)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -221,7 +351,14 @@ public class ImageDisplay extends javax.swing.JFrame {
         jPanel2.setName(""); // NOI18N
 
         Valor_Prey.setBackground(new java.awt.Color(255, 255, 204));
-        Valor_Prey.setText("0");
+        Valor_Prey.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                Valor_PreyFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                Valor_PreyFocusLost(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Wide Latin", 2, 15)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 102));
@@ -232,7 +369,14 @@ public class ImageDisplay extends javax.swing.JFrame {
         jLabel12.setText("Tibia Coins:");
 
         Valor_TC.setBackground(new java.awt.Color(255, 255, 204));
-        Valor_TC.setText("0");
+        Valor_TC.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                Valor_TCFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                Valor_TCFocusLost(evt);
+            }
+        });
 
         Calcular_PreyTC.setText("Calcular");
         Calcular_PreyTC.addActionListener(new java.awt.event.ActionListener() {
@@ -276,28 +420,34 @@ public class ImageDisplay extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PreyTC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Calcular_PreyTC)))
+                    .addComponent(Calcular_PreyTC))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jLabel13.setFont(new java.awt.Font("Wide Latin", 2, 15)); // NOI18N
         jLabel13.setText("Balance:");
 
         Balance.setBackground(new java.awt.Color(255, 255, 204));
-        Balance.setText("0");
-
-        Profit.setEditable(false);
-        Profit.setBackground(new java.awt.Color(255, 255, 204));
-        Profit.setText("0");
-
-        Calcular_Balance.setBackground(new java.awt.Color(0, 204, 204));
-        Calcular_Balance.setText("Calcular");
-        Calcular_Balance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Calcular_BalanceActionPerformed(evt);
+        Balance.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                BalanceFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                BalanceFocusLost(evt);
+            }
+        });
+        Balance.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                BalanceKeyReleased(evt);
             }
         });
 
+        Profit.setEditable(false);
+        Profit.setBackground(java.awt.Color.yellow);
+        Profit.setText("0");
+
         lb_profit.setFont(new java.awt.Font("Wide Latin", 2, 15)); // NOI18N
+        lb_profit.setForeground(java.awt.Color.cyan);
         lb_profit.setText("Profit");
 
         Salvar.setBackground(new java.awt.Color(0, 204, 204));
@@ -362,6 +512,14 @@ public class ImageDisplay extends javax.swing.JFrame {
 
         nomeRP.setBackground(new java.awt.Color(255, 255, 204));
         nomeRP.setToolTipText("Digite o nome do RP");
+        nomeRP.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nomeRPFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nomeRPFocusLost(evt);
+            }
+        });
         nomeRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeRPActionPerformed(evt);
@@ -370,6 +528,14 @@ public class ImageDisplay extends javax.swing.JFrame {
 
         nomeQuinto.setBackground(new java.awt.Color(255, 255, 204));
         nomeQuinto.setToolTipText("Digite o nome do Quinto");
+        nomeQuinto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nomeQuintoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nomeQuintoFocusLost(evt);
+            }
+        });
         nomeQuinto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeQuintoActionPerformed(evt);
@@ -417,38 +583,29 @@ public class ImageDisplay extends javax.swing.JFrame {
                                     .addComponent(ED_supply2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(MS_supply2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Balance, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Balance, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(nomeQuinto, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(Quinto_supply1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(Quinto_supply2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(46, 46, 46)
+                                        .addGap(42, 42, 42)
                                         .addComponent(jLabel14)
-                                        .addGap(68, 68, 68)
+                                        .addGap(72, 72, 72)
                                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ptx, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel10)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 5, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(ED_supply3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -464,10 +621,7 @@ public class ImageDisplay extends javax.swing.JFrame {
                                 .addComponent(total_supply_RP, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(Calcular_Balance)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lb_profit))
+                                    .addComponent(lb_profit)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(Quinto_supply3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(81, 81, 81)))
@@ -478,16 +632,26 @@ public class ImageDisplay extends javax.swing.JFrame {
                         .addGap(258, 258, 258))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addGap(52, 52, 52))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(arquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)))
+                                .addGap(34, 34, 34))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ptx, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel10))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(422, 422, 422)
+                .addComponent(texto)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -498,8 +662,8 @@ public class ImageDisplay extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jLabel10)
                     .addComponent(ptx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -509,13 +673,14 @@ public class ImageDisplay extends javax.swing.JFrame {
                     .addComponent(total_supply_ED, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nomeED, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MS_supply1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(MS_supply2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MS_supply3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(total_supply_MS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(MS_supply1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4)
+                        .addComponent(MS_supply2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(MS_supply3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nomeMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RP_supply1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -537,8 +702,7 @@ public class ImageDisplay extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(Balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lb_profit)
-                    .addComponent(Profit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Calcular_Balance))
+                    .addComponent(Profit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -550,66 +714,25 @@ public class ImageDisplay extends javax.swing.JFrame {
                             .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(arquivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(410, 410, 410))
+                .addGap(36, 36, 36)
+                .addComponent(texto)
+                .addContainerGap())
         );
 
         nomeED.getAccessibleContext().setAccessibleName("Digite o nome do ED");
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        getContentPane().add(jPanel1, gridBagConstraints);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1000, 510));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/me/mybackgroundapp/newpackage/testar.jpg"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(1024, 450));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        getContentPane().add(jLabel1, gridBagConstraints);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -1, 1030, 610));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void total_supply_EDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_supply_EDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_total_supply_EDActionPerformed
-
-    private void Calcular_BalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Calcular_BalanceActionPerformed
-        double supplyED = Double.parseDouble(total_supply_ED.getText());
-        double supplyMS = Double.parseDouble(total_supply_MS.getText());
-        double supplyRP = Double.parseDouble(total_supply_RP.getText());
-        double supplyQuinto = Double.parseDouble(total_supply_Quinto.getText());
-        double balance = Double.parseDouble(Balance.getText());
-        double calculo = supplyED + supplyMS + supplyRP + supplyQuinto;
-
-        DecimalFormat df = new DecimalFormat("0.##");
-        if (ptx.getSelectedIndex() == 1) {
-            double divisao = (balance - calculo) / 2;
-            String dx = df.format(divisao);
-            Profit.setText("" + divisao);
-            Cor();
-        }
-        if (ptx.getSelectedIndex() == 2) {
-            double divisao = (balance - calculo) / 3;
-            String dx = df.format(divisao);
-            Profit.setText("" + divisao);
-            Cor();
-        }
-        if (ptx.getSelectedIndex() == 3) {
-            double divisao = (balance - calculo) / 4;
-            String dx = df.format(divisao);
-            Profit.setText("" + divisao);
-            Cor();
-        }
-        if (ptx.getSelectedIndex() == 4) {
-            double divisao = (balance - calculo) / 5;
-            String dx = df.format(divisao);
-            Profit.setText("" + divisao);
-            Cor();
-        }
-    }//GEN-LAST:event_Calcular_BalanceActionPerformed
 
     private void Calcular_PreyTCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Calcular_PreyTCActionPerformed
         int prey = Integer.parseInt(Valor_Prey.getText());
@@ -619,7 +742,7 @@ public class ImageDisplay extends javax.swing.JFrame {
         double balance = Integer.parseInt(Balance.getText());
         double desconto = balance - calculo;
         Balance.setText(desconto + "");
-        Calcular_BalanceActionPerformed(evt);
+        Balance();
     }//GEN-LAST:event_Calcular_PreyTCActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -646,6 +769,8 @@ public class ImageDisplay extends javax.swing.JFrame {
         ptx.setSelectedIndex(0);
         lb_profit.setForeground(Color.cyan);
         Profit.setBackground(Color.yellow);
+        texto.setText("");
+        arquivo.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
@@ -657,7 +782,7 @@ public class ImageDisplay extends javax.swing.JFrame {
             double supplyRP = Double.parseDouble(total_supply_RP.getText());
             double supplyQuinto = Double.parseDouble(total_supply_Quinto.getText());
             df = new SimpleDateFormat("dd_MM_yyyy HH.mm.ss");
-            FileWriter arq = new FileWriter("C:\\home\\" + arquivo.getText() + " " + df.format(hoje) + ".txt");
+            FileWriter arq = new FileWriter("C:\\Hunts-Tibia\\" + arquivo.getText() + " " + df.format(hoje) + ".txt");
             PrintWriter gravarArq = new PrintWriter(arq);
 
             gravarArq.printf("******WASTES******\r\n" + "\r\n");
@@ -681,6 +806,8 @@ public class ImageDisplay extends javax.swing.JFrame {
             gravarArq.printf(nomeRP.getText() + ": " + contaRP + "\r\n");
             gravarArq.printf(nomeQuinto.getText() + ": " + contaQuinto + "\r\n");
             arq.close();
+            texto.setForeground(Color.green);
+            texto.setText("Arquivo Salvo com Sucesso!!");
         } catch (IOException ex) {
             Logger.getLogger(ImageDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -732,53 +859,326 @@ public class ImageDisplay extends javax.swing.JFrame {
     }//GEN-LAST:event_MS_supply1KeyReleased
 
     private void nomeEDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeEDFocusGained
-        if (nomeED.getText().equals("Ensira o nome do ED")){
+
+        if (nomeED.getText().equals("Digite o nome do ED")) {
             nomeED.setText("");
         }
-        
     }//GEN-LAST:event_nomeEDFocusGained
 
     private void nomeEDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeEDFocusLost
-        if (nomeED.getText().equals("")){
-            nomeED.setText("Ensira o nome do ED");
+        if (nomeED.getText().equals("")) {
+            nomeED.setText("Digite o nome do ED");
         }
     }//GEN-LAST:event_nomeEDFocusLost
 
     private void nomeMSFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeMSFocusLost
-        if (nomeMS.getText().equals("")){
+        if (nomeMS.getText().equals("")) {
             nomeMS.setText("Ensira o nome do MS");
         }
     }//GEN-LAST:event_nomeMSFocusLost
 
     private void nomeMSFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeMSFocusGained
-        if (nomeMS.getText().equals("Ensira o nome do MS")){
+        if (nomeMS.getText().equals("Ensira o nome do MS")) {
             nomeMS.setText("");
         }
     }//GEN-LAST:event_nomeMSFocusGained
-    private void MS_supply2KeyReleased(java.awt.event.KeyEvent evt) {
-        CalcularSupplyMS();
+
+    private void RP_supply1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RP_supply1FocusGained
+        if (RP_supply1.getText().equals("0")) {
+            RP_supply1.setText("");
+        }
+    }//GEN-LAST:event_RP_supply1FocusGained
+
+    private void nomeRPFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeRPFocusLost
+        if (nomeRP.getText().equals("")) {
+            nomeRP.setText("Ensira o nome do RP");
+    }//GEN-LAST:event_nomeRPFocusLost
     }
 
-    private void MS_supply3KeyReleased(java.awt.event.KeyEvent evt) {
+    private void nomeRPFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeRPFocusGained
+        if (nomeRP.getText().equals("Ensira o nome do RP")) {
+            nomeRP.setText("");
+        }
+    }//GEN-LAST:event_nomeRPFocusGained
+
+    private void nomeQuintoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeQuintoFocusGained
+        if (nomeQuinto.getText().equals("Ensira o nome do 5°")) {
+            nomeQuinto.setText("");
+        }
+    }//GEN-LAST:event_nomeQuintoFocusGained
+
+    private void nomeQuintoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeQuintoFocusLost
+        if (nomeQuinto.getText().equals("")) {
+            nomeQuinto.setText("Ensira o nome do 5°");
+        }
+    }//GEN-LAST:event_nomeQuintoFocusLost
+
+    private void RP_supply1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RP_supply1FocusLost
+        if (RP_supply1.getText().equals("")) {
+            RP_supply1.setText("0");
+        }
+    }//GEN-LAST:event_RP_supply1FocusLost
+
+    private void RP_supply2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RP_supply2FocusGained
+        if (RP_supply2.getText().equals("0")) {
+            RP_supply2.setText("");
+        }
+    }//GEN-LAST:event_RP_supply2FocusGained
+
+    private void MS_supply2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MS_supply2KeyReleased
         CalcularSupplyMS();
-    }
-    private void RP_supply1KeyReleased(java.awt.event.KeyEvent evt) {
+    }//GEN-LAST:event_MS_supply2KeyReleased
+
+    private void MS_supply3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MS_supply3KeyReleased
+        CalcularSupplyMS();
+    }//GEN-LAST:event_MS_supply3KeyReleased
+
+    private void RP_supply1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RP_supply1KeyReleased
         CalcularSupplyRP();
-    }
-    private void RP_supply2KeyReleased(java.awt.event.KeyEvent evt) {
+    }//GEN-LAST:event_RP_supply1KeyReleased
+
+    private void RP_supply2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RP_supply2KeyReleased
         CalcularSupplyRP();
-    }
-    private void RP_supply3KeyReleased(java.awt.event.KeyEvent evt) {
+    }//GEN-LAST:event_RP_supply2KeyReleased
+
+    private void RP_supply3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RP_supply3KeyReleased
         CalcularSupplyRP();
-    }
-    private void Quinto_supply1KeyReleased(java.awt.event.KeyEvent evt) {
+    }//GEN-LAST:event_RP_supply3KeyReleased
+
+    private void Quinto_supply1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Quinto_supply1KeyReleased
         CalcularSupplyQuinto();
-    }
-    private void Quinto_supply2KeyReleased(java.awt.event.KeyEvent evt) {
+    }//GEN-LAST:event_Quinto_supply1KeyReleased
+
+    private void Quinto_supply2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Quinto_supply2KeyReleased
         CalcularSupplyQuinto();
-    }
-    private void Quinto_supply3KeyReleased(java.awt.event.KeyEvent evt) {
+    }//GEN-LAST:event_Quinto_supply2KeyReleased
+
+    private void Quinto_supply3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Quinto_supply3KeyReleased
         CalcularSupplyQuinto();
+    }//GEN-LAST:event_Quinto_supply3KeyReleased
+
+    private void ED_supply1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ED_supply1FocusGained
+        if (ED_supply1.getText().equals("0")) {
+            ED_supply1.setText("");
+        }
+    }//GEN-LAST:event_ED_supply1FocusGained
+
+    private void ED_supply1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ED_supply1FocusLost
+        if (ED_supply1.getText().equals("")) {
+            ED_supply1.setText("0");
+        }
+    }//GEN-LAST:event_ED_supply1FocusLost
+
+    private void ED_supply2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ED_supply2FocusGained
+        if (ED_supply2.getText().equals("0")) {
+            ED_supply2.setText("");
+        }
+    }//GEN-LAST:event_ED_supply2FocusGained
+
+    private void ED_supply2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ED_supply2FocusLost
+        if (ED_supply2.getText().equals("")) {
+            ED_supply2.setText("0");
+        }
+    }//GEN-LAST:event_ED_supply2FocusLost
+
+    private void ED_supply3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ED_supply3FocusGained
+        if (ED_supply3.getText().equals("0")) {
+            ED_supply3.setText("");
+        }
+    }//GEN-LAST:event_ED_supply3FocusGained
+
+    private void ED_supply3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ED_supply3FocusLost
+        if (ED_supply3.getText().equals("")) {
+            ED_supply3.setText("0");
+        }
+    }//GEN-LAST:event_ED_supply3FocusLost
+
+    private void MS_supply1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MS_supply1FocusGained
+        if (MS_supply1.getText().equals("0")) {
+            MS_supply1.setText("");
+        }
+    }//GEN-LAST:event_MS_supply1FocusGained
+
+    private void MS_supply1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MS_supply1FocusLost
+        if (MS_supply1.getText().equals("")) {
+            MS_supply1.setText("0");
+        }
+    }//GEN-LAST:event_MS_supply1FocusLost
+
+    private void MS_supply2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MS_supply2FocusGained
+        if (MS_supply2.getText().equals("0")) {
+            MS_supply2.setText("");
+        }
+    }//GEN-LAST:event_MS_supply2FocusGained
+
+    private void MS_supply2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MS_supply2FocusLost
+        if (MS_supply2.getText().equals("")) {
+            MS_supply2.setText("0");
+        }
+    }//GEN-LAST:event_MS_supply2FocusLost
+
+    private void MS_supply3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MS_supply3FocusGained
+        if (MS_supply3.getText().equals("0")) {
+            MS_supply3.setText("");
+        }
+    }//GEN-LAST:event_MS_supply3FocusGained
+
+    private void MS_supply3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MS_supply3FocusLost
+        if (MS_supply3.getText().equals("")) {
+            MS_supply3.setText("0");
+        }
+    }//GEN-LAST:event_MS_supply3FocusLost
+
+    private void RP_supply2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RP_supply2FocusLost
+        if (RP_supply2.getText().equals("")) {
+            RP_supply2.setText("0");
+        }
+    }//GEN-LAST:event_RP_supply2FocusLost
+
+    private void RP_supply3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RP_supply3FocusGained
+        if (RP_supply3.getText().equals("0")) {
+            RP_supply3.setText("");
+        }
+    }//GEN-LAST:event_RP_supply3FocusGained
+
+    private void RP_supply3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RP_supply3FocusLost
+        if (RP_supply3.getText().equals("")) {
+            RP_supply3.setText("0");
+        }
+    }//GEN-LAST:event_RP_supply3FocusLost
+
+    private void Quinto_supply1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Quinto_supply1FocusGained
+        if (Quinto_supply1.getText().equals("0")) {
+            Quinto_supply1.setText("");
+        }
+    }//GEN-LAST:event_Quinto_supply1FocusGained
+
+    private void Quinto_supply1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Quinto_supply1FocusLost
+        if (Quinto_supply1.getText().equals("")) {
+            Quinto_supply1.setText("0");
+        }
+    }//GEN-LAST:event_Quinto_supply1FocusLost
+
+    private void Quinto_supply2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Quinto_supply2FocusGained
+        if (Quinto_supply2.getText().equals("0")) {
+            Quinto_supply2.setText("");
+        }
+    }//GEN-LAST:event_Quinto_supply2FocusGained
+
+    private void Quinto_supply2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Quinto_supply2FocusLost
+        if (Quinto_supply2.getText().equals("")) {
+            Quinto_supply2.setText("0");
+        }
+    }//GEN-LAST:event_Quinto_supply2FocusLost
+
+    private void Quinto_supply3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Quinto_supply3FocusGained
+        if (Quinto_supply3.getText().equals("0")) {
+            Quinto_supply3.setText("");
+        }
+    }//GEN-LAST:event_Quinto_supply3FocusGained
+
+    private void Quinto_supply3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Quinto_supply3FocusLost
+        if (Quinto_supply3.getText().equals("")) {
+            Quinto_supply3.setText("0");
+        }
+    }//GEN-LAST:event_Quinto_supply3FocusLost
+
+    private void BalanceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_BalanceFocusGained
+        if (Balance.getText().equals("0")) {
+            Balance.setText("");
+        }
+    }//GEN-LAST:event_BalanceFocusGained
+
+    private void BalanceFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_BalanceFocusLost
+        if (Balance.getText().equals("")) {
+            Balance.setText("0");
+        }
+    }//GEN-LAST:event_BalanceFocusLost
+
+    private void Valor_PreyFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Valor_PreyFocusGained
+        if (Valor_Prey.getText().equals("0")) {
+            Valor_Prey.setText("");
+        }
+    }//GEN-LAST:event_Valor_PreyFocusGained
+
+    private void Valor_PreyFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Valor_PreyFocusLost
+        if (Valor_Prey.getText().equals("")) {
+            Valor_Prey.setText("0");
+        }
+    }//GEN-LAST:event_Valor_PreyFocusLost
+
+    private void Valor_TCFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Valor_TCFocusGained
+        if (Valor_TC.getText().equals("0")) {
+            Valor_TC.setText("");
+        }
+    }//GEN-LAST:event_Valor_TCFocusGained
+
+    private void Valor_TCFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Valor_TCFocusLost
+        if (Valor_TC.getText().equals("")) {
+            Valor_TC.setText("0");
+        }
+    }//GEN-LAST:event_Valor_TCFocusLost
+
+    private void BalanceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BalanceKeyReleased
+        Balance();
+    }//GEN-LAST:event_BalanceKeyReleased
+
+
+    public void Balance() {
+        double supplyED = Double.parseDouble(total_supply_ED.getText());
+        double supplyMS = Double.parseDouble(total_supply_MS.getText());
+        double supplyRP = Double.parseDouble(total_supply_RP.getText());
+        double supplyQuinto = Double.parseDouble(total_supply_Quinto.getText());
+        double balance = Double.parseDouble(Balance.getText());
+        double calculo = supplyED + supplyMS + supplyRP + supplyQuinto;
+
+        DecimalFormat df = new DecimalFormat("0.##");
+        if (ptx.getSelectedIndex() == 1) {
+            double divisao = (balance - calculo) / 2;
+            String dx = df.format(divisao);
+            Profit.setText("" + divisao);
+            Cor();
+        }
+        if (ptx.getSelectedIndex() == 2) {
+            double divisao = (balance - calculo) / 3;
+            String dx = df.format(divisao);
+            Profit.setText("" + divisao);
+            Cor();
+        }
+        if (ptx.getSelectedIndex() == 3) {
+            double divisao = (balance - calculo) / 4;
+            String dx = df.format(divisao);
+            Profit.setText("" + divisao);
+            Cor();
+        }
+        if (ptx.getSelectedIndex() == 4) {
+            double divisao = (balance - calculo) / 5;
+            String dx = df.format(divisao);
+            Profit.setText("" + divisao);
+            Cor();
+        }
+    }
+
+    public void porfoco() {
+        nomeED.requestFocus();
+        nomeMS.setText("Ensira o nome do MS");
+        nomeRP.setText("Ensira o nome do RP");
+        nomeQuinto.setText("Ensira o nome do 5°");
+        ED_supply1.setText("0");
+        ED_supply2.setText("0");
+        ED_supply3.setText("0");
+        MS_supply1.setText("0");
+        MS_supply2.setText("0");
+        MS_supply3.setText("0");
+        RP_supply1.setText("0");
+        RP_supply2.setText("0");
+        RP_supply3.setText("0");
+        Quinto_supply1.setText("0");
+        Quinto_supply2.setText("0");
+        Quinto_supply3.setText("0");
+        Balance.setText("0");
+        Valor_Prey.setText("0");
+        Valor_TC.setText("0");
     }
 
     public void CalcularSupplyED() {
@@ -866,7 +1266,6 @@ public class ImageDisplay extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Balance;
-    private javax.swing.JButton Calcular_Balance;
     private javax.swing.JButton Calcular_PreyTC;
     private javax.swing.JTextField ED_supply1;
     private javax.swing.JTextField ED_supply2;
@@ -909,6 +1308,7 @@ public class ImageDisplay extends javax.swing.JFrame {
     private javax.swing.JTextField nomeQuinto;
     private javax.swing.JTextField nomeRP;
     private javax.swing.JComboBox<String> ptx;
+    private javax.swing.JLabel texto;
     private javax.swing.JTextField total_supply_ED;
     private javax.swing.JTextField total_supply_MS;
     private javax.swing.JTextField total_supply_Quinto;
